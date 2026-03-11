@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社内試験システム - 作成者画面</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <h1>作成者向け 管理画面</h1>
+      <p class="subtitle">問題の作成・編集・削除・入出力を行います。</p>
+    </header>
+
+    <section class="card" id="loginSection">
+      <h2>ログイン</h2>
+      <form id="adminLoginForm" novalidate>
+        <div class="form-row">
+          <label for="adminPassword">簡易パスワード <span class="required">*</span></label>
+          <input type="password" id="adminPassword" required>
+          <p class="error" id="adminLoginError"></p>
+        </div>
+        <div class="button-row">
+          <button type="submit">ログイン</button>
+          <a class="button-secondary" href="index.html">回答画面へ</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="card hidden" id="adminPanelSection">
+      <div class="admin-header-row">
+        <h2>問題一覧</h2>
+        <button type="button" id="logoutBtn" class="button-secondary">ログアウト</button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="adminQuestionTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>タイトル</th>
+              <th>問題文</th>
+              <th>選択肢数</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3 id="editorTitle">問題作成</h3>
+      <form id="questionForm" novalidate>
+        <input type="hidden" id="questionId">
+        <div class="form-row">
+          <label for="questionTitle">問題タイトル <span class="required">*</span></label>
+          <input type="text" id="questionTitle" maxlength="100" required>
+        </div>
+        <div class="form-row">
+          <label for="questionText">問題文 <span class="required">*</span></label>
+          <textarea id="questionText" rows="4" maxlength="500" required></textarea>
+        </div>
+
+        <fieldset class="option-fieldset">
+          <legend>選択肢（2〜6個）</legend>
+          <div id="optionInputs"></div>
+          <div class="button-row">
+            <button type="button" id="addOptionBtn" class="button-secondary">選択肢を追加</button>
+            <button type="button" id="removeOptionBtn" class="button-secondary">選択肢を削除</button>
+          </div>
+        </fieldset>
+
+        <div class="form-row">
+          <label for="correctIndex">正解の選択肢番号 <span class="required">*</span></label>
+          <select id="correctIndex" required></select>
+        </div>
+
+        <div class="form-row">
+          <label for="explanation">解説</label>
+          <textarea id="explanation" rows="3" maxlength="500"></textarea>
+        </div>
+
+        <p class="error" id="questionFormError"></p>
+
+        <div class="button-row">
+          <button type="submit" id="saveQuestionBtn">問題を保存</button>
+          <button type="button" id="cancelEditBtn" class="button-secondary hidden">編集をキャンセル</button>
+        </div>
+      </form>
+
+      <hr>
+
+      <h3>問題データの入出力</h3>
+      <div class="button-row">
+        <button type="button" id="exportJsonBtn">JSONとしてエクスポート</button>
+        <button type="button" id="exportJsBtn">JSとしてエクスポート</button>
+      </div>
+
+      <form id="importForm" class="import-box" novalidate>
+        <label for="importText">JSONまたはquestions.js形式を貼り付けてインポート</label>
+        <textarea id="importText" rows="8" placeholder='例: {"questions":[...]} または window.DEFAULT_QUESTIONS = {...};'></textarea>
+        <p class="error" id="importError"></p>
+        <div class="button-row">
+          <button type="submit">インポート実行</button>
+        </div>
+      </form>
+
+      <p class="note">※ 管理用パスワード初期値は <code>admin123</code> です（admin.jsで変更可）。</p>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

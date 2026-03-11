@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社内試験システム - 回答結果</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <h1>回答完了</h1>
+      <p class="subtitle">回答ありがとうございました。結果を確認してください。</p>
+    </header>
+
+    <section class="card">
+      <h2>受験者情報</h2>
+      <dl class="result-meta" id="candidateMeta"></dl>
+    </section>
+
+    <section class="card">
+      <h2>採点結果</h2>
+      <p id="scoreSummary"></p>
+      <div class="table-wrap">
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th>問題ID</th>
+              <th>問題タイトル</th>
+              <th>選択した回答</th>
+              <th>正解</th>
+              <th>正誤</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="button-row">
+        <button id="downloadCsvBtn" type="button">CSVをダウンロード</button>
+        <a class="button-secondary" href="index.html">新しく回答する</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

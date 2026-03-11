@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社内試験システム - 問題回答</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <h1>問題回答</h1>
+      <p class="subtitle" id="candidateInfo"></p>
+    </header>
+
+    <section class="card">
+      <h2>問題一覧</h2>
+      <p id="questionCount" class="note"></p>
+      <form id="examForm" novalidate>
+        <div id="questionsContainer"></div>
+        <p class="error" id="submitError"></p>
+        <div class="button-row">
+          <button type="submit">回答を提出する</button>
+          <a class="button-secondary" href="index.html">最初に戻る</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
