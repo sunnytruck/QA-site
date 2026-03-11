@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社内試験システム - 回答開始</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <h1>社内向け 問題回答ツール</h1>
+      <p class="subtitle">回答を開始する前に、受験者情報を入力してください。</p>
+    </header>
+
+    <section class="card">
+      <h2>回答開始</h2>
+      <form id="startForm" novalidate>
+        <div class="form-row">
+          <label for="department">所属部署 <span class="required">*</span></label>
+          <input type="text" id="department" name="department" maxlength="50" required>
+          <p class="error" id="departmentError"></p>
+        </div>
+
+        <div class="form-row">
+          <label for="employeeId">社員番号 <span class="required">*</span></label>
+          <input type="text" id="employeeId" name="employeeId" maxlength="30" required>
+          <p class="error" id="employeeIdError"></p>
+        </div>
+
+        <div class="form-row">
+          <label for="name">名前 <span class="required">*</span></label>
+          <input type="text" id="name" name="name" maxlength="50" required>
+          <p class="error" id="nameError"></p>
+        </div>
+
+        <div class="button-row">
+          <button type="submit">試験を開始する</button>
+          <a class="button-secondary" href="admin.html">作成者画面へ</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
