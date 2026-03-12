@@ -105,9 +105,10 @@
       const optionsHtml = q.options.map((opt, i) => {
         const optionId = `q_${idx}_${i}`;
         return `
-          <label class="option-label" for="${optionId}">
+          <label class="option-card" for="${optionId}">
             <input type="radio" id="${optionId}" name="question_${idx}" value="${i}">
-            ${esc(opt)}
+            <span class="option-index">${i + 1}.</span>
+            <span class="option-text">${esc(opt)}</span>
           </label>
         `;
       }).join("");

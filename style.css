@@ -95,10 +95,43 @@ button:hover, .button-secondary:hover { background: var(--primary-hover); }
   margin-bottom: 6px;
 }
 
-.option-label {
-  display: block;
+.option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   font-weight: 400;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.option-card:hover {
+  background: #f8fafc;
+}
+
+.option-card input[type="radio"] {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.option-index {
+  min-width: 22px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.option-text {
+  flex: 1 1 auto;
+}
+
+.option-card:has(input[type="radio"]:checked) {
+  border-color: var(--primary);
+  background: #eff6ff;
 }
 
 .table-wrap {
